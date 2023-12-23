@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
-import '@radix-ui/themes/styles.css';
 import '../globals.css'
-import { Theme } from '@radix-ui/themes';
 import Navbar from '../Components/Navbar/Navbar';
 import Footer from '../Components/Footer/Footer';
 
@@ -20,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Theme>
+      
       <body className={`${inter.className} ` }>
         <Navbar />
 
@@ -28,12 +26,17 @@ export default function RootLayout({
         {children}
 
         </div>
-        <Footer />
+        <div className='z-50 mt-5'>
+
+
+        <Footer  />
+
+        </div>
 
         
       </body>
 
-      </Theme>
+      
     </html>
   )
 }
