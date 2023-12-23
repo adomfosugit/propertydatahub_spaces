@@ -9,7 +9,7 @@ type Props = {}
 const Footer = (props: Props) => {
   return (
     
-    <div className='"sticky z-50 bottom-0 p-4 grid grid-rows-3 md:grid-cols-3  gap-4 justify-center  bg-slate-900 text-white max-w-[2520px]  xl:px-20 md:px-10 sm:px-2 px-4 py-4  h-[300px] md:h-[180px]'>
+    <div className=' grid grid-rows-3 md:grid-cols-3  gap-4 justify-center  bg-slate-900 text-white max-w-[2520px]  xl:px-20 md:px-10 sm:px-2 px-4 py-4  h-[300px] md:h-[180px]'>
 
     
     <div>
