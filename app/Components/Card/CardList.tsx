@@ -15,8 +15,9 @@ import {
   } from "@/components/ui/carousel"
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Share2Icon, ShareIcon } from 'lucide-react';
+
 import { urlFor } from '@/lib/client';
+import Link from 'next/link';
 type Props = {
     productDetails: {
         name:string;
@@ -29,7 +30,7 @@ type Props = {
     
 }
 
-const CardList = ({productDetails}: Props) => {
+const CardList = ({productDetails}: any) => {
   console.log(productDetails)
   const {name,price,Spaceavailable,roomtype,image} = productDetails;
   return (
@@ -39,9 +40,9 @@ const CardList = ({productDetails}: Props) => {
     <Carousel >
       <CarouselContent>
       
-  {image.map((img:any)=>(
+      {image.map((img:any)=>(
 
-        <Image src={urlFor(img).url()} alt='hotel pic' width={300} height={100} key={img._key} priority/>
+        <Image src={urlFor(img).width(300).height(200).url()} alt='hotel pic' width={300} height={100} key={img._key} priority/>
  ))}  
          
       </CarouselContent >
@@ -69,7 +70,9 @@ const CardList = ({productDetails}: Props) => {
 
        </div>
        <div className='flex flex-col gap-y-2 mt-2'>
-       <Button>Book</Button>
+        <Link href= {`/rooms/${productDetails.slug.current}`}>
+          <Button>Book</Button>
+        </Link>
       
 
        </div>

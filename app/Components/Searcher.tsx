@@ -22,6 +22,7 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
+import { useRouter } from "next/navigation"
 
 
 const formSchema = z.object({
@@ -32,6 +33,7 @@ const formSchema = z.object({
 })
 
  function Searcher() {
+  const router = useRouter()
   // ...
     // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
@@ -48,6 +50,7 @@ const formSchema = z.object({
         
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
+        router.push('/rooms')
         console.log(values)
       }
 

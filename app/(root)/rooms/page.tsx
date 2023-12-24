@@ -1,3 +1,4 @@
+
 import CardList from '@/app/Components/Card/CardList'
 import { hostelListings } from '@/constants'
 import { client } from '@/lib/client'
@@ -6,7 +7,7 @@ import React from 'react'
 
 
 
-type products={
+export type products={
     _type: 'document';
     _id?: string;
     _rev?: string;
@@ -35,13 +36,18 @@ type products={
   
   async function getData(){
     const query = '*[_type== "product" ]';
-    const products = await client.fetch(query);
+   
+    const products = await client.fetch(query,  {next: {
+      
+      revalidate: 40,// look for updates to revalidate cache every hour
+    }});
     return products; 
   }
 
 
 const page = async() => {
   const products = (await getData()) as products[]
+  console.log(products)
   
   return (
     <div className='flex justify-center max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4'>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Menu from './Menu'
 import SearchModal from '../SearchModal'
+import { UserButton } from '@clerk/nextjs'
 
 type Props = {}
 
@@ -19,7 +20,7 @@ const RightContent = (props: Props) => {
          
         <div>Payment Guide</div>
         {/* usermenu handles logout and logins*/}
-        <div> UserMenu </div>
+        <div> <UserButton /> </div>
     </div>
 
     </div>

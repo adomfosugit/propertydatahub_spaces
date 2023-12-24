@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { MenuIcon } from "lucide-react";
 import SearchModal from "../SearchModal";
+import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 function Menu() {
   return (
@@ -19,13 +21,18 @@ function Menu() {
             <MenuIcon size={35} />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuGroup>
+        <DropdownMenuGroup >
         
+   <DropdownMenuItem className="flex flex-row justify-center">
+           <UserButton />
+  </DropdownMenuItem>
+            <Link href='/rooms'>
           <DropdownMenuItem>
-            About
+            Rooms Available
         </DropdownMenuItem>
+            </Link>
           <DropdownMenuItem>
-            Contact
+            Contact and About
           </DropdownMenuItem>
           <DropdownMenuItem>
             Your Bookings
@@ -38,9 +45,6 @@ function Menu() {
     
           <DropdownMenuItem>Advertise with Us</DropdownMenuItem>
          {/* write a conditioinal rendering*/}
-        <DropdownMenuItem>
-          Log out
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
