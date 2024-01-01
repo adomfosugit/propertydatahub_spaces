@@ -28,18 +28,13 @@ function Menu() {
   </DropdownMenuItem>
             <Link href='/rooms'>
           <DropdownMenuItem>
-            Rooms Available
+            All Available Spaces
         </DropdownMenuItem>
             </Link>
           <DropdownMenuItem>
             Contact and About
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            Your Bookings
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Payment Guide
-          </DropdownMenuItem>
+        
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
     

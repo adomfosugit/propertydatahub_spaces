@@ -27,8 +27,7 @@ import { useRouter } from "next/navigation"
 
 const formSchema = z.object({
   
-  Room: z.string().min(2,{message:'Required*'}),
-  Gender: z.string().min(2,{message:'Required*'}),
+  Space: z.string().min(2,{message:'Required*'}),
   Location: z.string().min(2,{message:'Required*'}),
 })
 
@@ -39,8 +38,8 @@ const formSchema = z.object({
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-          Room: '',
-          Gender: '',
+          Space: '',
+         
           Location: ''
         },
       })
@@ -57,26 +56,27 @@ const formSchema = z.object({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
-       <h1 className="text-center font-bold text-[25px]"> Book Your Room </h1>
+       <h1 className="text-center font-bold text-[25px]">Find Your Space </h1>
       
         <FormField
           control={form.control}
-          name="Room"
+          name="Space"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Room</FormLabel>
+              <FormLabel>Space</FormLabel>
               <FormControl>
               <Select onValueChange={field.onChange} >
                 <SelectTrigger className="w-[250px] text-black">
-                    <SelectValue placeholder="Select Room" />
+                    <SelectValue placeholder="Select Space" />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                    <SelectLabel>Room Type</SelectLabel>
-                    <SelectItem value="1 in 1">1 in 1 </SelectItem>
-                    <SelectItem value="2 in 1">2 in 1 </SelectItem>
-                    <SelectItem value="3 in 1">3 in 1 </SelectItem>
-                    <SelectItem value="4 in 1">4 in 1 </SelectItem>
+                    <SelectLabel>Select Space</SelectLabel>
+                    <SelectItem value="Office">Office </SelectItem>
+                    <SelectItem value="House for Sale">House(For Sale) </SelectItem>
+                    <SelectItem value="House for rent">House(Rent) </SelectItem>
+                    <SelectItem value="land">Land </SelectItem>
+                 
                     
                   </SelectGroup>
                 </SelectContent>
@@ -88,46 +88,21 @@ const formSchema = z.object({
         />
         <FormField
           control={form.control}
-          name="Gender"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Gender</FormLabel>
-              <FormControl>
-              <Select  onValueChange={field.onChange}>
-                <SelectTrigger className="w-[250px] text-black">
-                    <SelectValue placeholder="Select Gender"  />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectGroup>
-                    <SelectLabel>Gender</SelectLabel>
-                    <SelectItem value="Male">Male</SelectItem>
-                    <SelectItem value="Female">Female</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-            </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-       
-        <FormField
-          control={form.control}
           name="Location"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Location</FormLabel>
               <FormControl>
-              <Select onValueChange={field.onChange} >
+              <Select  onValueChange={field.onChange}>
                 <SelectTrigger className="w-[250px] text-black">
                     <SelectValue placeholder="Select Location"  />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                    <SelectLabel>Location </SelectLabel>
-                    <SelectItem value="Annex">Annex</SelectItem>
-                    <SelectItem value="Ayeduase">Ayeduase</SelectItem>
-                    <SelectItem value="Bomso">Bomso</SelectItem>
+                    <SelectLabel>Location</SelectLabel>
+                    <SelectItem value="Accra">Accra</SelectItem>
+                    <SelectItem value="Kumasi">Kumasi</SelectItem>
+                    <SelectItem value="Takoradi">Takoradi</SelectItem>
                   </SelectGroup>
                 </SelectContent>
             </Select>
@@ -137,7 +112,9 @@ const formSchema = z.object({
           )}
         />
        
-        <Button type="submit" className="w-full ">Submit</Button>
+      
+       
+        <Button type="submit" className="w-full bg-green-700 hover:bg-green-600 ">Submit</Button>
       </form>
     </Form>
   )

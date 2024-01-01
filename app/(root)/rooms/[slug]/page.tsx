@@ -1,6 +1,7 @@
 import { client } from "@/lib/client";
 import { products } from "../page";
 import Listings from "./Listings";
+import Mapcomponent from "@/app/Components/Mapcomponent";
 
 interface GetDataParams {
     params: {
@@ -20,6 +21,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="flex justify-between max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4">
 
             <Listings productDetails={ products}/>
+            
         </div>
         </div>)
   }

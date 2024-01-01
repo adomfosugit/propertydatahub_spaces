@@ -2,6 +2,7 @@ import React from 'react'
 import Menu from './Menu'
 import SearchModal from '../SearchModal'
 import { UserButton } from '@clerk/nextjs'
+import Link from 'next/link'
 
 type Props = {}
 
@@ -15,10 +16,13 @@ const RightContent = (props: Props) => {
         <SearchModal />
       </div>
       
-        <div>About</div>
-         <div>Bookings</div>
+        <div className=' hover:text-green-700 font-bold hover:cursor-pointer'>About</div>
+        <Link href='/rooms'>
+         <div className=' hover:text-green-700 font-bold hover:cursor-pointer'>All Spaces</div>
+        
+        </Link>
          
-        <div>Payment Guide</div>
+        <div className=' hover:text-green-700 font-bold hover:cursor-pointer'>Advertise with Us</div>
         {/* usermenu handles logout and logins*/}
         <div> <UserButton /> </div>
     </div>

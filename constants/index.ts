@@ -110,7 +110,7 @@ export const section=[
     {title:'Quick Links', details: [
         {link: '/', label:'Home'},
         {link: '/', label:'About'},
-        {link: '/', label:'Rooms(Flash Deals)'}, ]},
+         ]},
 ]
 export const section1=[
    
