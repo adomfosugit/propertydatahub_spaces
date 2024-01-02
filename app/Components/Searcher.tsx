@@ -23,6 +23,7 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 import { useRouter } from "next/navigation"
+import { Properties } from "@/constants"
 
 
 const formSchema = z.object({
@@ -46,17 +47,17 @@ const formSchema = z.object({
      
       // 2. Define a submit handler.
       function onSubmit(values: z.infer<typeof formSchema>) {
-        
+      
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        router.push('/rooms')
+        router.push(`/query/${values.Space}|${values.Location}`)
         console.log(values)
       }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
-       <h1 className="text-center font-bold text-[25px]">Find Your Space </h1>
+       <h1 className="text-center font-bold text-[25px] ">Find Your Space </h1>
       
         <FormField
           control={form.control}
@@ -72,10 +73,13 @@ const formSchema = z.object({
                 <SelectContent>
                     <SelectGroup>
                     <SelectLabel>Select Space</SelectLabel>
-                    <SelectItem value="Office">Office </SelectItem>
-                    <SelectItem value="House for Sale">House(For Sale) </SelectItem>
-                    <SelectItem value="House for rent">House(Rent) </SelectItem>
-                    <SelectItem value="land">Land </SelectItem>
+                    <SelectItem value="Land">Land </SelectItem>
+                    <SelectItem value="Residential(House)">Residential(House) </SelectItem>
+                    <SelectItem value="Residentia(Apartment)">Residential(Apartment) </SelectItem>
+                    <SelectItem value="Industrial(Warehouse)">Industrial(Warehouse) </SelectItem>
+                    <SelectItem value="Shop">Shop </SelectItem>
+                    <SelectItem value="Residential(Townhouse)">Residential(Townhouse) </SelectItem>
+                    <SelectItem value="industrial(manufacturing)">Industrial(manufacturing) </SelectItem>
                  
                     
                   </SelectGroup>

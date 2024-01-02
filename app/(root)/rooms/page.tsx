@@ -1,6 +1,6 @@
 
 import CardList from '@/app/Components/Card/CardList'
-import { hostelListings } from '@/constants'
+import { Properties } from '@/constants'
 import { client } from '@/lib/client'
 import Image from 'next/image'
 import React from 'react'
@@ -34,30 +34,45 @@ export type products={
   };
 
   
-  async function getData(){
-    const query = '*[_type== "product" ]';
+ // async function getData(){
+   // const query = '*[_type== "product" ]';
    
-    const products = await client.fetch(query,  {next: {
+    //const products = await client.fetch(query,  {next: {
       
-      revalidate: 3600,// look for updates to revalidate cache every hour
-    }});
-    return products; 
-  }
+     // revalidate: 2,// look for updates to revalidate cache every hour
+    //}});
+    //return products; 
+  //}
 
 
-const page = async() => {
-  const products = (await getData()) as products[]
-  console.log(products)
+const page = () => {
+  //const products = (await getData()) as products[]
+  //console.log(products)
+  //const products = Properties.find(num => num.PropertyName ===  );
+  
   
   return (
     <div className='flex justify-center max-w-[2520px] mx-auto xl:px-20 md:px-10 sm:px-2 px-4'>
-      <div className='pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-8'>
-      {products.map((list)=> (
-      <CardList key={list._id} productDetails={list} />
-      
-      ))}
-      </div>
-      
+      <div className='pt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-8'>
+
+{/*  query from database sanity 
+        {products.map((list)=> (  
+        <CardList key={list._id} productDetails={list} />
+        
+        ))}     */}
+         {Properties.map((list)=> (  
+
+        <CardList key={list.Neighbourhood} productDetails={list} />
+        
+        ))}
+
+
+        
+        </div> 
+
+     
+        
+     
 
     </div>
   )

@@ -28,10 +28,10 @@ export default function RootLayout({
         {children}
 
         </div>
-        <div className='z-50 mt-5'>
+        <div className='z-50 mt-5 '>
 
 
-        <Footer  />
+        <Footer />
 
         </div>
 
