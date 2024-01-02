@@ -61,7 +61,7 @@ const CardList = ({productDetails}:Props) => {
   //const {name,price,Spaceavailable,roomtype,image} = productDetails;
   const {PropertyName,PropertyRegion,Neighbourhood,StreetName,Longitude,Latitude,Bedrooms,Bathrooms,Washrooms,TotalFloorArea,Landsize,PropertyType,TransactionType,Amount} = productDetails
   return (
-    <Card className='w-[400px] md:w-[350px] relative'>
+    <Card className='w-[350px] md:w-[300px] relative'>
   
    {/* <CardContent className='w-full'>
     <Carousel >
